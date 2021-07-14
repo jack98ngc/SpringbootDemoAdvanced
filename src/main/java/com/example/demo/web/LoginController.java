@@ -7,14 +7,12 @@
  */
 package com.example.demo.web;
 
-import java.util.List;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -29,7 +27,9 @@ public class LoginController {
     UserRepository userRepository;
     
     @GetMapping("/register")
-    public String register() {
+    public String register(Model model) {
+        //空白頁需初始化一個新的物件
+        model.addAttribute("userForm", new UserForm());
         return "register";
     }
     
@@ -41,13 +41,10 @@ public class LoginController {
     @PostMapping("/register")
     public String register(@Valid UserForm userForm, BindingResult validResult) {
         if(!userForm.confirmPassword()) {
-            validResult.rejectValue("confirmPassword", "confirmError", "inconsistently");
+            validResult.rejectValue("confirmPassword", "confirmError", "confirm password inconsistently");
         }
         
         if(validResult.hasErrors()) {
-            for(FieldError error :validResult.getFieldErrors()) {
-                System.out.println(String.format("%s %s %s", error.getField() ,error.getDefaultMessage(), error.getCode()));
-            }
             return "register";
         }
         

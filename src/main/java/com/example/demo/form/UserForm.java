@@ -19,7 +19,8 @@ import com.example.demo.domain.User;
 
 public class UserForm {
 
-    private static final String PHONE_REG = "^((13[0-9])|(15[^4])|(18[0,2,3,5-9])|(17[0-8])|(147))\\d{8}$";
+    private static final String PHONE_REG = "^09[0-9]{8}$";
+//    private static final String PHONE_REG = "^((13[0-9])|(15[^4])|(18[0,2,3,5-9])|(17[0-8])|(147))\\d{8}$";
     @NotBlank
     private String username;
     @Length(min = 6, message = "長度不足6碼")
