@@ -18,7 +18,7 @@ public class User {
     private Long id;
     private String username;
     private String password;
-    private int phone;
+    private String phone;
     private String email;
 
     public User() {}
@@ -41,10 +41,10 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
     public String getEmail() {
