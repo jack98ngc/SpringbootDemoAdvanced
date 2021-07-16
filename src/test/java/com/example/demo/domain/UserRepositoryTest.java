@@ -40,7 +40,7 @@ public class UserRepositoryTest {
         user.setUsername("username");
         user.setPassword("password");
         user.setEmail("email");
-        user.setPhone(12345);
+        user.setPhone("12345");
         
         User save = userRepository.save(user);
         
