@@ -52,4 +52,9 @@ public class LoginController {
         userRepository.save(user);
         return "redirect:/login";
     }
+    
+    @GetMapping("/exception")
+    public String testException() {
+        throw new RuntimeException();
+    }
 }
