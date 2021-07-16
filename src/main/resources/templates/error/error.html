@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Error</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
+</head>
+<body>
+    <div class="container" style="max-width:600px;margin-top:50px;">
+        <div class="jumbotron">
+            <h2>Error</h2>
+            <p>Sorry, 服務異常，請聯系管理員</p>
+            <p>請求路徑: <code th:text="${url}"></code></p>
+            <p>異常詳細: <code th:text="${exception.message}"></code></p>
+        </div>
+    </div>
+</body>
+</html>
